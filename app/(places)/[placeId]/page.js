@@ -1,41 +1,32 @@
 import React from 'react';
+import PlaceCom from './PlaceCom';
 
-const places = async({params}) => {
-   const {placeId} = await params
-    
-    return (
-       <>
-        <div className="col-lg-12">
-                <div className="item last-item">
-                  <div className="row">
-                    <div className="col-lg-4 col-sm-5">
-                      <div className="image">
-                        <img src={`/assets/images/country-0${placeId}.jpg`} alt=""/>
-                      </div>
-                    </div>
-                    <div className="col-lg-8 col-sm-7">
-                      <div className="right-content">
-                        <h4 className='text-white'>FRANCE</h4>
-                        <span>Europe</span>
-                        <div className="main-button p-4">
-                          <a href="about.html">Explore More</a>
-                        </div>
-                        <p>We hope this WoOx template is useful for you, please support us a <a href="https://paypal.me/templatemo" target="_blank">small amount of PayPal</a> to info [at] templatemo.com for our survival. We really appreciate your contribution.</p>
-                        <ul className="info">
-                          <li><i className="fa fa-user"></i> 67.41 Mil People</li>
-                          <li><i className="fa fa-globe"></i> 551.500 km2</li>
-                          <li><i className="fa fa-home"></i> $425.600</li>
-                        </ul>
-                        <div className="text-button">
-                          <a href="about.html">Need Directions ? <i className="fa fa-arrow-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-       </>
-    );
+export async function generateMetadata({ params }) {
+  const { placeId } = await params; // اگر Next 15 داری
+
+  return {
+    title: `place ${placeId}`,
+  };
+}
+
+const place = [
+  { id: 1, name: 'Switzerland', continent: 'Europe', population: '8.66', area: '41.290', price: '1,100,200' },
+  { id: 2, name: 'Caraeebian', continent: 'Europe', population: '44.48', area: '275.400', price: '946,000' },
+  { id: 3, name: 'France', continent: 'Europe', population: '67.41', area: '551.500', price: '425,600' }
+];
+
+const Places = async ({ params }) => {
+  const { placeId } = await params; // اگر Next 15 داری
+
+  const selectedPlace = place.find(
+    p => p.id === Number(placeId)
+  );
+
+  if (!selectedPlace) {
+    return <h1>Place not found</h1>;
+  }
+
+  return <PlaceCom places={selectedPlace} />;
 };
 
-export default places;
+export default Places;

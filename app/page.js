@@ -1,9 +1,11 @@
 'use client';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Script from 'next/script';
 import React, { useEffect } from 'react';
 
 export default function Home  () {
+  const router = useRouter()
     useEffect(()=>{ function bannerSwitcher() {
       next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
       if (next.length) next.prop('checked', true);
@@ -210,7 +212,7 @@ export default function Home  () {
         <div className="col-lg-8">
           <div className="items">
             <div className="row">
-              <div className="col-lg-12">
+              <div  className="col-lg-12">
                 <div className="item">
                   <div className="row">
                     <div className="col-lg-4 col-sm-5">
@@ -218,12 +220,12 @@ export default function Home  () {
                         <img src="/assets/images/country-01.jpg" alt=""/>
                       </div>
                     </div>
-                    <div className="col-lg-8 col-sm-7">
+                    <div  className="col-lg-8 col-sm-7">
                       <div className="right-content">
                         <h4>SWITZERLAND</h4>
                         <span>Europe</span>
-                        <div className="main-button">
-                          <a href="about.html">Explore More</a>
+                        <div onClick={()=>router('/1')} className="main-button">
+                          <a href="/1">Explore More</a>
                         </div>
                         <p>Woox Travel is a professional Bootstrap 5 theme HTML CSS layout for your website. You can use this layout for your commercial work.</p>
                         <ul className="info">
@@ -247,12 +249,12 @@ export default function Home  () {
                         <img src="/assets/images/country-02.jpg" alt=""/>
                       </div>
                     </div>
-                    <div className="col-lg-8 col-sm-7">
+                    <div  className="col-lg-8 col-sm-7">
                       <div className="right-content">
                         <h4>CARIBBEAN</h4>
                         <span>North America</span>
-                        <div className="main-button">
-                          <a href="about.html">Explore More</a>
+                        <div onClick={()=>router('/2')}  className="main-button">
+                          <a href="/2">Explore More</a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
                         <ul className="info">
@@ -276,12 +278,12 @@ export default function Home  () {
                         <img src="/assets/images/country-03.jpg" alt=""/>
                       </div>
                     </div>
-                    <div className="col-lg-8 col-sm-7">
+                    <div  className="col-lg-8 col-sm-7">
                       <div className="right-content">
                         <h4>FRANCE</h4>
                         <span>Europe</span>
-                        <div className="main-button">
-                          <a href="about.html">Explore More</a>
+                        <div onClick={()=>router('/3')} className="main-button">
+                          <a href="/3">Explore More</a>
                         </div>
                         <p>We hope this WoOx template is useful for you, please support us a <a href="https://paypal.me/templatemo" target="_blank">small amount of PayPal</a> to info [at] templatemo.com for our survival. We really appreciate your contribution.</p>
                         <ul className="info">

@@ -1,6 +1,10 @@
+'use client'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 const Header = () => {
+    const pathName = usePathname()
     return (
         <>
             <header className="header-area header-sticky">
@@ -14,11 +18,11 @@ const Header = () => {
                     </a>
                    
                     <ul className="nav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/deals">Deals</a></li>
-                        <li><a href="/reservation">Reservation</a></li>
-                        <li><a href="/reservation">Book Yours</a></li>
+                        <li><Link style={{color: pathName == '/' && 'purple'}} href="/">Home</Link></li>
+                        <li><Link style={{color: pathName == '/about' && 'purple'}} href="/about">About</Link></li>
+                        <li><Link style={{color: pathName == '/deals' && 'purple'}} href="/deals">Deals</Link></li>
+                        <li><Link style={{color: pathName == '/reservation' && 'purple'}} href="/reservation">Reservation</Link></li>
+                        <li><Link style={{color: pathName == '/reservation' && 'purple'}} href="/reservation">Book Yours</Link></li>
                     </ul>   
                     <a className='menu-trigger'>
                         <span>Menu</span>
