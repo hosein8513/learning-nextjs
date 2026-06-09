@@ -17,9 +17,7 @@ const PlaceCom = ({places}) => {
                       <div className="right-content">
                         <h4 className='text-white'>{places.name}</h4>
                         <span>{places.continent}</span>
-                        <div className="main-button p-4">
-                          <a href={places.id}>Explore More</a>
-                        </div>
+                       
                         <p>We hope this WoOx template is useful for you, please support us a <a href="https://paypal.me/templatemo" target="_blank">small amount of PayPal</a> to info [at] templatemo.com for our survival. We really appreciate your contribution.</p>
                         <ul className="info">
                           <li><i className="fa fa-user"></i> {places.population} Mil People</li>
