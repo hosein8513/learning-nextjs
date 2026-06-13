@@ -9,7 +9,7 @@ const UserPage = ({ post }) => {
                 <button className='className=w-13 h-8 rounded-lg bg-gray-300 text-white text-center' onClick={() => router.back()}>Back</button>
                 <br />
                 <br />
-                {post.name}
+                {post.title}
                 <br />
                 {post.body}
                 
@@ -34,13 +34,14 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     const { postId } = context.params
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+    const res = await fetch(`http://localhost:3000/posts/${postId}`)
     const post = await res.json()
 
     return {
         props: {
             post
-        }
+        },
+        revalidate: 30
     }
 
 }

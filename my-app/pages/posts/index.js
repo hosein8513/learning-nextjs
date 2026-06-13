@@ -18,12 +18,13 @@ const index = ({posts}) => {
 
 export default index;
 
-export async function  getServerSideProps() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+export async function  getStaticProps() {
+    const res = await fetch('http://localhost:3000/posts')
       const posts = await res.json()
       return{
         props:{
             posts
-        }
+        },
+        revalidate:10
       }
 }
