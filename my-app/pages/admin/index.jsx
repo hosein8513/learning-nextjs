@@ -21,7 +21,7 @@ const index = () => {
         <h1 className='text-center p-4'>Loading...</h1>
     ) : (
         <>
-            <button className='p-4 rounded-lg bg-gray-300' onClick={() => router.back()}>back</button>
+            <button className='p-4 rounded-lg bg-gray-600' onClick={() => router.back()}>back</button>
             <ul>
                 {Object.keys(data).map(key => (
                     <li>{`${key} : ${data[key]}`}</li>
