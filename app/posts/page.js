@@ -1,9 +1,10 @@
 import BackButton from '@/components/BackButton';
+import UpdatePosts from '@/components/UpdatePosts';
 import Link from 'next/link';
 import React from 'react';
 
 const getPostsService = async ()=>{
-    const res = await fetch('http://localhost:3000/posts',{next:{revalidate:10}})
+    const res = await fetch('http://localhost:3000/posts',{next:{tags:['allposts']}})
     const posts = await res.json()
     return posts
 
@@ -14,6 +15,7 @@ const page = async() => {
     return (
       <div className='w-full h-full flex flex-col gap-4 justify-center items-center'>
         <BackButton/>
+        <UpdatePosts   tag={'allposts'}/>
             <ul className='flex flex-col gap-4'>
                 {posts.map(p=>(
                     <Link key={p.id} href={`/posts/${p.id}`}> {p.title}</Link>
