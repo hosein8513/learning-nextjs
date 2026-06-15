@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const getPostsService = async ()=>{
-    const res = await fetch('http://localhost:3000/posts')
+    const res = await fetch('http://localhost:3000/posts',{next:{revalidate:10}})
     const posts = await res.json()
     return posts
 

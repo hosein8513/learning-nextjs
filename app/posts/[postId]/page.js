@@ -10,7 +10,7 @@ export async function generateStaticParams() {
 }
 
 const getPostsService = async (postId) => {
-    const res = await fetch(`http://localhost:3000/posts/${postId}`)
+    const res = await fetch(`http://localhost:3000/posts/${postId}`,{next:{revalidate:15}})
     const post = await res.json()
     return post
 }
