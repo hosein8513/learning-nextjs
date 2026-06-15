@@ -9,6 +9,7 @@ const page = () => {
       <Link className='w-[200px] h-7.5 text-center bg-blue-500 text-white rounded-lg' href={'/admin'}>Show admin</Link>
       <Link className='w-[200px] h-7.5 text-center bg-blue-500 text-white rounded-lg' href={'/admin/panel'}>Show admin-panel</Link>
       <Link className='w-[200px] h-7.5 text-center bg-blue-500 text-white rounded-lg' href={'/fposts'}>Show fposts</Link>
+      <Link className='w-[200px] h-7.5 text-center bg-blue-500 text-white rounded-lg' href={'/usersNoStore'}>Show usersNoStore</Link>
     </div>
   );
 };

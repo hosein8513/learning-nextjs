@@ -6,7 +6,7 @@ const BackButton = () => {
     const router = useRouter()
     return (
         <div>
-            <button className='w-10 h-6 rounded-lg bg-gray-600 text-white text-center' 
+            <button className='w-10 h-6 rounded-lg bg-gray-600 text-white text-center cursor-pointer' 
             onClick={()=>{
                 console.log("clicked");
                 
