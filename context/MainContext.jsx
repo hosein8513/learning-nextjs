@@ -8,7 +8,7 @@ export const MainContext = createContext({
 import React from 'react';
 
 const MainContextProvider = ({ children }) => {
-    const [darkMode, setDarkMode] = useState("light")
+    const [darkMode, setDarkMode] = useState("")
     return (
         <MainContext.Provider value={{
             darkMode,
