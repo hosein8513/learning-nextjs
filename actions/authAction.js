@@ -4,10 +4,10 @@ import axios from "axios"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
-export const loginAction = async (formData) => {
+export const loginAction = async (prevState,formData) => {
     let redirectTo = null
 
-    try {
+    
         const phone = formData.get("phone")
         const password = formData.get("password")
         const remember = formData.get("remember") || 0
@@ -20,19 +20,8 @@ export const loginAction = async (formData) => {
             cookieStore.set("loginToken", token)
             redirectTo = "/userpanel"
         } else {
-            return { error: "خطای ناشناخته" }
+            return {error:"اطلاعات درست نیست",success:false }
         }
-
-    } catch (error) {
-        if (error?.response?.status === 401) {
-            return { error: "نام کاربری یا رمز عبور اشتباه است" }
-        }
-        if (error?.response?.status === 422) {
-            return { error: "اطلاعات وارد شده معتبر نیست" }
-        }
-        console.error(error)
-        return { error: "خطا در برقراری ارتباط با سرور" }
-    }
 
     if (redirectTo) redirect(redirectTo)
 }

@@ -1,14 +1,18 @@
 'use client'
 import { loginAction } from '@/actions/authAction';
 import ToggleBtn from '@/components/ToggleButton';
-import React from 'react';
+import React, { useActionState } from 'react';
 
 const Login = () => {
+    const [state,formAction] = useActionState(loginAction,{error:"",success:false})
     return (
         <div className='flex justify-center items-center h-full w-full px-2  lg:px-10'>
-            <form action={loginAction} className='w-full text-gray-600 bg-linear-to-b from-gray-300 to-gray-100 p-3 rounded-lg border-2 shadow'>
+            <form action={formAction} className='w-full text-gray-600 bg-linear-to-b from-gray-300 to-gray-100 p-3 rounded-lg border-2 shadow'>
 
                 <h1 className='text-center my-5'>فرم ورود</h1>
+                {state.error&&(
+                    <p className='text-red-500 text-center'>{state.error}</p>
+                )}
                 <div>
                     <label>شماره موبایل:</label>
                     <input name="phone" type='number' className='px-4 w-full border-gray-300 border-2 rounded-full h-12 focus:outline-blue-300' />
