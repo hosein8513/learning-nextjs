@@ -16,10 +16,12 @@ const Login = () => {
                 <div>
                     <label>شماره موبایل:</label>
                     <input name="phone" type='number' className='px-4 w-full border-gray-300 border-2 rounded-full h-12 focus:outline-blue-300' />
+                    <small className='text-red-500 text-center'>{state.errors?.phone?.at(0)||''}</small>
                 </div>
                 <div className='mt-5'>
                     <label>رمز عبور:</label>
                     <input name="password" type='password' className='px-4 w-full border-gray-300 border-2 rounded-full h-12 focus:outline-blue-300' />
+                      <small className='text-red-500 text-center'>{state.errors?.password.at(0)||''}</small>
                 </div>
                 <div className='mt-5'>
                     <ToggleBtn value={1} name="remember" title="مرا بخاطر بسپار" />
