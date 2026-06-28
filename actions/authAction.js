@@ -12,6 +12,10 @@ const validationSchema = z.object({
 
 export const loginAction = async (prevState,formData) => {
     let redirectTo = null
+const cookieStore = await cookies()
+const cookie = cookieStore.get("logintoken")
+console.log(cookie);
+
 
     
         const phone = formData.get("phone")
