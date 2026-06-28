@@ -8,7 +8,7 @@ const router = useRouter()
 const successLogin = credentialResponse =>{
     //post to server
     //get token
-    const token = "dkuhkjsdfghb"
+    const token = ""
     const cookieStore = new Cookies(null,{path:"/"})
     cookieStore.set("logintoken",token)
     router.push("/userpanel")

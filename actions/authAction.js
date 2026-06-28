@@ -39,11 +39,29 @@ console.log(cookie);
         if (res.status === 200) {
             const token = res.data.token
             const cookieStore = await cookies()
-            cookieStore.set("loginToken", token)
+            cookieStore.set("logintoken", token)
             redirectTo = "/userpanel"
         } else {
             return {error:"اطلاعات درست نیست",success:false }
         }
 
     if (redirectTo) redirect(redirectTo)
+}
+
+export const isLoggedIn = async (token) => {
+    if(!token) return false
+
+    console.log("Authorization:", `Bearer ${token}`)
+
+    const res = await fetch("https://ecomadminapi.azhadev.ir/api/auth/user", {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+
+
+    if(res.status !== 200) return false
+
+    return true
 }
