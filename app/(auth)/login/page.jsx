@@ -2,6 +2,8 @@
 import { loginAction } from '@/actions/authAction';
 import ToggleBtn from '@/components/ToggleButton';
 import React, { useActionState } from 'react';
+import SubmitButton from '@/components/SubmitButton';
+import AuthLogin from '@/components/AuthLogin';
 
 const Login = () => {
     const [state,formAction] = useActionState(loginAction,{error:"",success:false})
@@ -28,7 +30,10 @@ const Login = () => {
                 </div>
 
                 <div className='my-6 px-4'>
-                    <button className='rounded-full w-full bg-blue-600 h-12 text-white'>ورود</button>
+                   <SubmitButton/>
+                </div>
+                <div className='my-6 px-4 flex justify-center items-center'>
+                    <AuthLogin />
                 </div>
             </form>
         </div>
