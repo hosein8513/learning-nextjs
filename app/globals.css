@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@layer components{
+    .user_panel_cards{
+        @apply flex justify-center items-center rounded-lg bg-[#ffffff60] border p-10;
+    }
+}
