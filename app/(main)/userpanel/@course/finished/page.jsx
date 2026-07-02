@@ -3,7 +3,7 @@ import React from 'react';
 const page = () => {
     return (
         <div>
-            اسلات کیف پول
+            دوره های پایان یافته
         </div>
     );
 };
