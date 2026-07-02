@@ -1,10 +1,6 @@
-'use client'
-import CommentModal from '@/components/about/CommentModal';
 import Link from 'next/link';
-import React, { useState } from 'react';
 
 const page = () => {
-    const [showModal,setShowModal] = useState(false)
     return (
         <div>
             <h1 className="text-center py-5"> درباره ما </h1>
@@ -13,13 +9,9 @@ const page = () => {
             </p>
 
             <div className="text-center w-full">
-                <button className="rounded-full bg-cyan-500 text-white px-5 py-3 w-1/6" onClick={() => setShowModal(true)}>ثبت نظر</button>
+                <Link className="rounded-full bg-cyan-500 text-white px-5 py-3 w-1/6" href={'/about/addComment'}>ثبت نظر</Link>
             </div>
-            <div className="flex justify-center w-full mt-4">
-                <Link href={"/about/honor"} className="rounded-full bg-cyan-500 text-white px-5 py-3 flex justify-center w-1/6">افتخارات</Link>
-            </div>
-
-            {showModal && (<CommentModal setShowModal={setShowModal} />)}
+           
         </div>
     );
 };
